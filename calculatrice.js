@@ -1,29 +1,40 @@
-var display = document.querySelector("#display");
-var numbers = document.querySelectorAll(".number");
-var operators = document.querySelectorAll(".operator");
-var equalTo = document.querySelector(".equal-to");
-var clear = document.querySelector(".clear");
+/* begin */
+
+const html = document.querySelector("html");
+const body = document.querySelector("body");
+const h1 = document.querySelector("h1");
+const calculator = document.createElement("div");
+
+const display = document.querySelector("#display");
+const numbers = document.querySelectorAll(".number");
+const operators = document.querySelectorAll(".operator");
+const equalTo = document.querySelector(".equal-to");
+const clear = document.querySelector(".clear");
+
+/* linken van html met js */
+
 
 /* clicks */
-for (var i = 0; i < numbers.length; i++) {
-  numbers[i].onclick = numberState;
-}
-for (var i = 0; i < operators.length; i++) {
+for (let i = 0; i < numbers.length; i++) {
+  numbers[i].onclick = numberState;   
+} 
+
+for (let i = 0; i < operators.length; i++) {
   operators[i].onclick = operatorState;
 }
 equalTo.onclick = calculateState;
 clear.onclick = clearState;
 
-/* fonctions */
+/* les fonctions */
 function numberState(event) {
-  var buttonText = event.target.textContent;
-  var displayText = display.value;
-  var newText = displayText + buttonText;
+  let buttonText = event.target.textContent;
+  let displayText = display.value;
+  let newText = displayText + buttonText;
   display.value = newText;
 }
 
-var firstNumText;
-var operator;
+let firstNumText;
+let operator;
 function operatorState(event) {
   firstNumText = display.value;
   operator = event.target.textContent;
@@ -31,9 +42,9 @@ function operatorState(event) {
 }
 
 function calculateState(event) {
-    var firstNumInt = parseInt(firstNumText);
-    var secondNumInt = parseInt(display.value);
-    var result;
+    let firstNumInt = parseInt(firstNumText);
+    let secondNumInt = parseInt(display.value);
+    let result;
 
     if (operator == "+") {
       result = firstNumInt + secondNumInt;
